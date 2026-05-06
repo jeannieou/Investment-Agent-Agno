@@ -1,0 +1,483 @@
+{
+  "raw_input": [
+    "Nvidia",
+    "AMD",
+    "Intel"
+  ],
+  "confirmed_companies": [
+    {
+      "name": "Nvidia",
+      "url": "https://www.nvidia.com",
+      "description": "Mock confirmed identity for Nvidia",
+      "ticker": "NVDA",
+      "company_type": "public",
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Nvidia mock identity source",
+          "url": "https://example.com/nvidia/identity",
+          "publisher": "Mock Search",
+          "date": null,
+          "snippet": "Mock source confirming Nvidia's identity."
+        }
+      ]
+    },
+    {
+      "name": "AMD",
+      "url": "https://www.amd.com",
+      "description": "Mock confirmed identity for AMD",
+      "ticker": "AMD",
+      "company_type": "public",
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "AMD mock identity source",
+          "url": "https://example.com/amd/identity",
+          "publisher": "Mock Search",
+          "date": null,
+          "snippet": "Mock source confirming AMD's identity."
+        }
+      ]
+    },
+    {
+      "name": "Intel",
+      "url": "https://www.intel.com",
+      "description": "Mock confirmed identity for Intel",
+      "ticker": "INTC",
+      "company_type": "public",
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Intel mock identity source",
+          "url": "https://example.com/intel/identity",
+          "publisher": "Mock Search",
+          "date": null,
+          "snippet": "Mock source confirming Intel's identity."
+        }
+      ]
+    }
+  ],
+  "research": [
+    {
+      "name": "Nvidia",
+      "url": "https://www.nvidia.com",
+      "company_type": "public",
+      "ticker": "NVDA",
+      "business_model": "Nvidia is modeled as a enterprise company with subscription revenue characteristics.",
+      "products": [
+        "Nvidia developer tools",
+        "Nvidia data layer"
+      ],
+      "team_size": "Mock large public-company workforce",
+      "key_people": [
+        "Not found"
+      ],
+      "funding_or_financials": "Mock public-company profile with strong growth but unclear margin durability",
+      "market_size": "Mock emerging market estimate with source attribution",
+      "recent_news": [
+        "Nvidia announced a mock developer tools update.",
+        "Nvidia appeared in mock enterprise market coverage."
+      ],
+      "competitors": [
+        "Open-source alternative",
+        "Platform competitor"
+      ],
+      "sources": [
+        {
+          "title": "Nvidia mock identity source",
+          "url": "https://example.com/nvidia/identity",
+          "publisher": "Mock Search",
+          "date": null,
+          "snippet": "Mock source confirming Nvidia's identity."
+        },
+        {
+          "title": "Nvidia mock research source",
+          "url": "https://example.com/nvidia/research",
+          "publisher": "Mock Research",
+          "date": null,
+          "snippet": "Mock evidence used for Nvidia research fields."
+        }
+      ]
+    },
+    {
+      "name": "AMD",
+      "url": "https://www.amd.com",
+      "company_type": "public",
+      "ticker": "AMD",
+      "business_model": "AMD is modeled as a vertical software company with usage-based revenue characteristics.",
+      "products": [
+        "AMD workflow suite",
+        "AMD marketplace"
+      ],
+      "team_size": "Mock large public-company workforce",
+      "key_people": [
+        "Not found"
+      ],
+      "funding_or_financials": "Mock public-company profile with steady revenue but heavy investment needs",
+      "market_size": "Mock large market estimate with source attribution",
+      "recent_news": [
+        "AMD announced a mock workflow suite update.",
+        "AMD appeared in mock vertical software market coverage."
+      ],
+      "competitors": [
+        "Large incumbent",
+        "Regional competitor"
+      ],
+      "sources": [
+        {
+          "title": "AMD mock identity source",
+          "url": "https://example.com/amd/identity",
+          "publisher": "Mock Search",
+          "date": null,
+          "snippet": "Mock source confirming AMD's identity."
+        },
+        {
+          "title": "AMD mock research source",
+          "url": "https://example.com/amd/research",
+          "publisher": "Mock Research",
+          "date": null,
+          "snippet": "Mock evidence used for AMD research fields."
+        }
+      ]
+    },
+    {
+      "name": "Intel",
+      "url": "https://www.intel.com",
+      "company_type": "public",
+      "ticker": "INTC",
+      "business_model": "Intel is modeled as a consumer company with transaction-driven revenue characteristics.",
+      "products": [
+        "Intel analytics product",
+        "Intel services"
+      ],
+      "team_size": "Mock large public-company workforce",
+      "key_people": [
+        "Not found"
+      ],
+      "funding_or_financials": "Mock public-company profile with steady revenue but heavy investment needs",
+      "market_size": "Mock niche but expanding market estimate with source attribution",
+      "recent_news": [
+        "Intel announced a mock analytics product update.",
+        "Intel appeared in mock consumer market coverage."
+      ],
+      "competitors": [
+        "Large incumbent",
+        "Regional competitor"
+      ],
+      "sources": [
+        {
+          "title": "Intel mock identity source",
+          "url": "https://example.com/intel/identity",
+          "publisher": "Mock Search",
+          "date": null,
+          "snippet": "Mock source confirming Intel's identity."
+        },
+        {
+          "title": "Intel mock research source",
+          "url": "https://example.com/intel/research",
+          "publisher": "Mock Research",
+          "date": null,
+          "snippet": "Mock evidence used for Intel research fields."
+        }
+      ]
+    }
+  ],
+  "analysis": [
+    {
+      "name": "Nvidia",
+      "market_opportunity": {
+        "score": 7,
+        "narrative": "Nvidia has a mock focused addressable market.",
+        "confidence": "medium"
+      },
+      "competitive_position": {
+        "score": 8,
+        "narrative": "Nvidia has mock defensible competitive positioning.",
+        "confidence": "medium"
+      },
+      "growth_potential": {
+        "score": 8,
+        "narrative": "Nvidia shows mock early growth signals.",
+        "confidence": "medium"
+      },
+      "business_model_strength": {
+        "score": 7,
+        "narrative": "Nvidia has a mock durable business model.",
+        "confidence": "medium"
+      },
+      "overall_score": 8,
+      "one_line_verdict": "Nvidia is a mock strong investment candidate."
+    },
+    {
+      "name": "AMD",
+      "market_opportunity": {
+        "score": 10,
+        "narrative": "AMD has a mock broad addressable market.",
+        "confidence": "medium"
+      },
+      "competitive_position": {
+        "score": 7,
+        "narrative": "AMD has mock mixed competitive positioning.",
+        "confidence": "medium"
+      },
+      "growth_potential": {
+        "score": 10,
+        "narrative": "AMD shows mock volatile growth signals.",
+        "confidence": "medium"
+      },
+      "business_model_strength": {
+        "score": 9,
+        "narrative": "AMD has a mock still-unproven business model.",
+        "confidence": "medium"
+      },
+      "overall_score": 9,
+      "one_line_verdict": "AMD is a mock strong investment candidate."
+    },
+    {
+      "name": "Intel",
+      "market_opportunity": {
+        "score": 8,
+        "narrative": "Intel has a mock early but expanding addressable market.",
+        "confidence": "medium"
+      },
+      "competitive_position": {
+        "score": 9,
+        "narrative": "Intel has mock unproven competitive positioning.",
+        "confidence": "medium"
+      },
+      "growth_potential": {
+        "score": 10,
+        "narrative": "Intel shows mock strong growth signals.",
+        "confidence": "medium"
+      },
+      "business_model_strength": {
+        "score": 9,
+        "narrative": "Intel has a mock developing business model.",
+        "confidence": "medium"
+      },
+      "overall_score": 9,
+      "one_line_verdict": "Intel is a mock strong investment candidate."
+    }
+  ],
+  "risks": [
+    {
+      "name": "Nvidia",
+      "key_risks": [
+        "Nvidia faces mock competitive pressure.",
+        "Nvidia has mock execution risk.",
+        "Source coverage is synthetic at Stage 1."
+      ],
+      "analyst_weaknesses": [
+        "Analysis is based on deterministic mock research, not live data."
+      ],
+      "open_questions": [
+        "What do live sources say about recent performance?",
+        "How durable is the company's competitive position?",
+        "Are financial or funding claims supported by primary sources?"
+      ],
+      "risk_level": "medium",
+      "sources_to_verify": [
+        "https://example.com/nvidia/identity",
+        "https://example.com/nvidia/research"
+      ]
+    },
+    {
+      "name": "AMD",
+      "key_risks": [
+        "AMD faces mock competitive pressure.",
+        "AMD has mock execution risk.",
+        "Source coverage is synthetic at Stage 1."
+      ],
+      "analyst_weaknesses": [
+        "Analysis is based on deterministic mock research, not live data."
+      ],
+      "open_questions": [
+        "What do live sources say about recent performance?",
+        "How durable is the company's competitive position?",
+        "Are financial or funding claims supported by primary sources?"
+      ],
+      "risk_level": "medium",
+      "sources_to_verify": [
+        "https://example.com/amd/identity",
+        "https://example.com/amd/research"
+      ]
+    },
+    {
+      "name": "Intel",
+      "key_risks": [
+        "Intel faces mock competitive pressure.",
+        "Intel has mock execution risk.",
+        "Source coverage is synthetic at Stage 1."
+      ],
+      "analyst_weaknesses": [
+        "Analysis is based on deterministic mock research, not live data."
+      ],
+      "open_questions": [
+        "What do live sources say about recent performance?",
+        "How durable is the company's competitive position?",
+        "Are financial or funding claims supported by primary sources?"
+      ],
+      "risk_level": "medium",
+      "sources_to_verify": [
+        "https://example.com/intel/identity",
+        "https://example.com/intel/research"
+      ]
+    }
+  ],
+  "memo": "# Investment Recommendation Memo\n\n## Executive Summary\nThis mock memo evaluates Nvidia, AMD, Intel. The current top pick is AMD based on deterministic Stage 1 scoring.\n\n## Company Profiles\n### Nvidia\n- Business: Nvidia is modeled as a enterprise company with subscription revenue characteristics.\n- Financials/Funding: Mock public-company profile with strong growth but unclear margin durability\n- Score: 8/10\n- Key risks: Nvidia faces mock competitive pressure.; Nvidia has mock execution risk.\n\n### AMD\n- Business: AMD is modeled as a vertical software company with usage-based revenue characteristics.\n- Financials/Funding: Mock public-company profile with steady revenue but heavy investment needs\n- Score: 9/10\n- Key risks: AMD faces mock competitive pressure.; AMD has mock execution risk.\n\n### Intel\n- Business: Intel is modeled as a consumer company with transaction-driven revenue characteristics.\n- Financials/Funding: Mock public-company profile with steady revenue but heavy investment needs\n- Score: 9/10\n- Key risks: Intel faces mock competitive pressure.; Intel has mock execution risk.\n\n## Side-by-Side Comparison\n| Company | Market opportunity | Competitive position | Growth potential | Business model | Risk level | Overall |\n|---|---:|---:|---:|---:|---|---:|\n| Nvidia | 7/10 | 8/10 | 8/10 | 7/10 | medium | 8/10 |\n| AMD | 10/10 | 7/10 | 10/10 | 9/10 | medium | 9/10 |\n| Intel | 8/10 | 9/10 | 10/10 | 9/10 | medium | 9/10 |\n\n## Recommendation\n**Invest in: AMD**\n\nReason: This is a mock recommendation proving the workflow can produce a complete memo.\n\nKey risks to monitor: Replace mock research with live sources before making any real investment decision.\n\n## Sources\n[1] Nvidia mock identity source - https://example.com/nvidia/identity\n[2] Nvidia mock research source - https://example.com/nvidia/research\n[3] AMD mock identity source - https://example.com/amd/identity\n[4] AMD mock research source - https://example.com/amd/research\n[5] Intel mock identity source - https://example.com/intel/identity\n[6] Intel mock research source - https://example.com/intel/research\n",
+  "start_time": 1778097041.8837535,
+  "run_log": {
+    "agent_runs": [
+      {
+        "agent": "Identity Agent",
+        "company": "Nvidia",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.8977535,
+        "latency_seconds": 0.014,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Identity Agent",
+        "company": "AMD",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.9057536,
+        "latency_seconds": 0.022,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Identity Agent",
+        "company": "Intel",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.9227536,
+        "latency_seconds": 0.039,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Research Agent",
+        "company": "Nvidia",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.9087536,
+        "latency_seconds": 0.025,
+        "tool_calls": [
+          "mock_search",
+          "mock_company_profile"
+        ],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Analyst Agent",
+        "company": "Nvidia",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.9037535,
+        "latency_seconds": 0.02,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Critic Agent",
+        "company": "Nvidia",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.9077535,
+        "latency_seconds": 0.024,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Research Agent",
+        "company": "AMD",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.9167535,
+        "latency_seconds": 0.033,
+        "tool_calls": [
+          "mock_search",
+          "mock_company_profile"
+        ],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Analyst Agent",
+        "company": "AMD",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.9217536,
+        "latency_seconds": 0.038,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Critic Agent",
+        "company": "AMD",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.9067535,
+        "latency_seconds": 0.023,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Research Agent",
+        "company": "Intel",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.9047534,
+        "latency_seconds": 0.021,
+        "tool_calls": [
+          "mock_search",
+          "mock_company_profile"
+        ],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Analyst Agent",
+        "company": "Intel",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.9077535,
+        "latency_seconds": 0.024,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Critic Agent",
+        "company": "Intel",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.9197536,
+        "latency_seconds": 0.036,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Decision Agent",
+        "company": "all",
+        "start_time": 1778097041.8837535,
+        "end_time": 1778097041.9047534,
+        "latency_seconds": 0.021,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      }
+    ],
+    "total_latency_seconds": 0.19,
+    "cumulative_agent_latency_seconds": 0.34,
+    "identity_latency_seconds": 0.075,
+    "parallel_pipeline_latency_seconds": 0.094,
+    "decision_latency_seconds": 0.021,
+    "company_pipeline_latency_seconds": {
+      "Nvidia": 0.069,
+      "AMD": 0.094,
+      "Intel": 0.081
+    },
+    "warnings": []
+  }
+}

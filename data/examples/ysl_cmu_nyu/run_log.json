@@ -1,0 +1,151 @@
+{
+  "agent_runs": [
+    {
+      "agent": "Identity Agent",
+      "company": "YSL",
+      "start_time": 1778092133.9079194,
+      "end_time": 1778092138.0374691,
+      "latency_seconds": 4.13,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Identity Agent",
+      "company": "CMU",
+      "start_time": 1778092138.0374691,
+      "end_time": 1778092140.020409,
+      "latency_seconds": 1.983,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Identity Agent",
+      "company": "NYU",
+      "start_time": 1778092140.020409,
+      "end_time": 1778092143.3038862,
+      "latency_seconds": 3.283,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Research Agent",
+      "company": "Yves Saint Laurent",
+      "start_time": 1778092143.3038862,
+      "end_time": 1778092155.2080617,
+      "latency_seconds": 11.904,
+      "tool_calls": [
+        "get_wiki_summary",
+        "get_financial_data",
+        "search_exa_for_company",
+        "search_web_for_company"
+      ],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Analyst Agent",
+      "company": "Yves Saint Laurent",
+      "start_time": 1778092155.2080617,
+      "end_time": 1778092161.2736967,
+      "latency_seconds": 6.066,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Research Agent",
+      "company": "New York University",
+      "start_time": 1778092143.3586526,
+      "end_time": 1778092163.6084356,
+      "latency_seconds": 20.25,
+      "tool_calls": [
+        "get_wiki_summary",
+        "get_financial_data",
+        "search_exa_for_company",
+        "search_web_for_company"
+      ],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Research Agent",
+      "company": "Carnegie Mellon University",
+      "start_time": 1778092143.3356535,
+      "end_time": 1778092164.09048,
+      "latency_seconds": 20.755,
+      "tool_calls": [
+        "get_wiki_summary",
+        "get_financial_data",
+        "search_exa_for_company",
+        "search_web_for_company"
+      ],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Analyst Agent",
+      "company": "New York University",
+      "start_time": 1778092163.6084356,
+      "end_time": 1778092168.831532,
+      "latency_seconds": 5.223,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Critic Agent",
+      "company": "Yves Saint Laurent",
+      "start_time": 1778092161.2736967,
+      "end_time": 1778092169.2937806,
+      "latency_seconds": 8.02,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Analyst Agent",
+      "company": "Carnegie Mellon University",
+      "start_time": 1778092164.0914793,
+      "end_time": 1778092169.3644738,
+      "latency_seconds": 5.273,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Critic Agent",
+      "company": "New York University",
+      "start_time": 1778092168.831532,
+      "end_time": 1778092173.4530456,
+      "latency_seconds": 4.622,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Critic Agent",
+      "company": "Carnegie Mellon University",
+      "start_time": 1778092169.3644738,
+      "end_time": 1778092177.6929877,
+      "latency_seconds": 8.329,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Decision Agent",
+      "company": "all",
+      "start_time": 1778092177.6939902,
+      "end_time": 1778092199.5640235,
+      "latency_seconds": 21.87,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    }
+  ],
+  "total_latency_seconds": 65.65710377693176,
+  "warnings": []
+}

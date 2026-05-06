@@ -1,0 +1,154 @@
+{
+  "agent_runs": [
+    {
+      "agent": "Identity Agent",
+      "company": "Nvidia",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.8977535,
+      "latency_seconds": 0.014,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Identity Agent",
+      "company": "AMD",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.9057536,
+      "latency_seconds": 0.022,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Identity Agent",
+      "company": "Intel",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.9227536,
+      "latency_seconds": 0.039,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Research Agent",
+      "company": "Nvidia",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.9087536,
+      "latency_seconds": 0.025,
+      "tool_calls": [
+        "mock_search",
+        "mock_company_profile"
+      ],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Analyst Agent",
+      "company": "Nvidia",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.9037535,
+      "latency_seconds": 0.02,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Critic Agent",
+      "company": "Nvidia",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.9077535,
+      "latency_seconds": 0.024,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Research Agent",
+      "company": "AMD",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.9167535,
+      "latency_seconds": 0.033,
+      "tool_calls": [
+        "mock_search",
+        "mock_company_profile"
+      ],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Analyst Agent",
+      "company": "AMD",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.9217536,
+      "latency_seconds": 0.038,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Critic Agent",
+      "company": "AMD",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.9067535,
+      "latency_seconds": 0.023,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Research Agent",
+      "company": "Intel",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.9047534,
+      "latency_seconds": 0.021,
+      "tool_calls": [
+        "mock_search",
+        "mock_company_profile"
+      ],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Analyst Agent",
+      "company": "Intel",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.9077535,
+      "latency_seconds": 0.024,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Critic Agent",
+      "company": "Intel",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.9197536,
+      "latency_seconds": 0.036,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    },
+    {
+      "agent": "Decision Agent",
+      "company": "all",
+      "start_time": 1778097041.8837535,
+      "end_time": 1778097041.9047534,
+      "latency_seconds": 0.021,
+      "tool_calls": [],
+      "success": true,
+      "error": null
+    }
+  ],
+  "total_latency_seconds": 0.19,
+  "cumulative_agent_latency_seconds": 0.34,
+  "identity_latency_seconds": 0.075,
+  "parallel_pipeline_latency_seconds": 0.094,
+  "decision_latency_seconds": 0.021,
+  "company_pipeline_latency_seconds": {
+    "Nvidia": 0.069,
+    "AMD": 0.094,
+    "Intel": 0.081
+  },
+  "warnings": []
+}

@@ -1,0 +1,9 @@
+agno[os]
+pydantic
+pytest
+python-dotenv
+requests
+fastapi
+openai
+sqlalchemy
+uvicorn[standard]

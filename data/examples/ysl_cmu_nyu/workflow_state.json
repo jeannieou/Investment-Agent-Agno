@@ -1,0 +1,576 @@
+{
+  "raw_input": [
+    "YSL",
+    "CMU",
+    "NYU"
+  ],
+  "confirmed_companies": [
+    {
+      "name": "Yves Saint Laurent",
+      "url": "https://www.ysl.com",
+      "description": "Yves Saint Laurent (YSL) is a luxury fashion house known for its high-end clothing, accessories, and beauty products.",
+      "ticker": null,
+      "company_type": "private",
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Yves Saint Laurent Official Website",
+          "url": "https://www.ysl.com",
+          "publisher": "Yves Saint Laurent",
+          "date": null,
+          "snippet": "Official website of Yves Saint Laurent, a luxury fashion brand commonly abbreviated as YSL."
+        }
+      ]
+    },
+    {
+      "name": "Carnegie Mellon University",
+      "url": "https://www.cmu.edu/",
+      "description": "Carnegie Mellon University (CMU) is a private research university known for its programs in computer science, engineering, and the arts.",
+      "ticker": null,
+      "company_type": "private",
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Carnegie Mellon University Official Website",
+          "url": "https://www.cmu.edu/",
+          "publisher": "Carnegie Mellon University",
+          "date": null,
+          "snippet": "Carnegie Mellon University (CMU) is a private research university in Pittsburgh, Pennsylvania."
+        }
+      ]
+    },
+    {
+      "name": "New York University",
+      "url": "https://www.nyu.edu/",
+      "description": "New York University (NYU) is a private research university based in New York City, known for its diverse academic programs and global presence.",
+      "ticker": null,
+      "company_type": "private",
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "New York University Official Website",
+          "url": "https://www.nyu.edu/",
+          "publisher": "New York University",
+          "date": null,
+          "snippet": "New York University (NYU) is a private research university based in New York City."
+        }
+      ]
+    }
+  ],
+  "research": [
+    {
+      "name": "Yves Saint Laurent",
+      "url": "https://www.ysl.com",
+      "company_type": "private",
+      "ticker": null,
+      "business_model": "Yves Saint Laurent is a French luxury fashion house specializing in couture, ready-to-wear, leather accessories, and footwear. It also has a cosmetics line, YSL Beauty, owned by L'Or\u00e9al.",
+      "products": [
+        "Couture clothing",
+        "Ready-to-wear clothing",
+        "Leather accessories",
+        "Footwear",
+        "Cosmetics"
+      ],
+      "team_size": "Not found",
+      "key_people": [
+        "C\u00e9dric Charbit (CEO since 2024)",
+        "Anthony Vaccarello (Creative Director since 2016)"
+      ],
+      "funding_or_financials": "Reported 2.9 billion euros in sales in 2024.",
+      "market_size": "Not found",
+      "recent_news": [
+        "Yves Saint Laurent reported 2.9 billion euros in sales in 2024.",
+        "C\u00e9dric Charbit appointed CEO in 2024.",
+        "Anthony Vaccarello has been the creative director since 2016.",
+        "YSL Beauty cosmetics line is owned by L'Or\u00e9al.",
+        "The fashion house was founded in 1961 by Yves Saint Laurent and Pierre Berg\u00e9."
+      ],
+      "competitors": [
+        "Gucci",
+        "Chanel",
+        "Dior",
+        "Prada",
+        "Louis Vuitton"
+      ],
+      "sources": [
+        {
+          "title": "Yves Saint Laurent (fashion house)",
+          "url": "https://en.wikipedia.org/wiki/Yves_Saint_Laurent_(fashion_house)",
+          "publisher": "en.wikipedia.org",
+          "date": null,
+          "snippet": "Yves Saint Laurent SAS is a French luxury fashion house founded in 1961 by Yves Saint Laurent and his partner, Pierre Berg\u00e9. The company specializes in couture, ready-to-wear, leather accessories, and footwear. Its cosmetics line, YSL Beauty, is owned by L'Or\u00e9al. C\u00e9dric Charbit has been CEO since 2024, and Anthony Vaccarello creative director since 2016. In 2024, Yves Saint Laurent reported 2.9 billion euros in sales."
+        },
+        {
+          "title": "Yves Saint Laurent Official Website",
+          "url": "https://www.ysl.com",
+          "publisher": "Yves Saint Laurent",
+          "date": null,
+          "snippet": "Official website of Yves Saint Laurent, a luxury fashion brand commonly abbreviated as YSL."
+        },
+        {
+          "title": "Yves Saint Laurent | Museum, Marrakech, Biography ...",
+          "url": "https://www.britannica.com/biography/Yves-Saint-Laurent-French-designer",
+          "publisher": "britannica.com",
+          "date": "1998-07-20T00:00:00.000Z",
+          "snippet": "Yves Saint Laurent was a French fashion designer who founded his eponymous fashion label in 1962. He is widely regarded as one of the foremost designers of the 20th century. The house specializes in couture, ready-to-wear, and accessories."
+        }
+      ]
+    },
+    {
+      "name": "Carnegie Mellon University",
+      "url": "https://www.cmu.edu/",
+      "company_type": "private",
+      "ticker": null,
+      "business_model": "Carnegie Mellon University is a private research university that focuses on academic and research excellence, fostering innovation and entrepreneurship. It partners with industry and government to advance technology and education, and supports startup creation and economic development.",
+      "products": [
+        "Academic programs in computer science, engineering, arts, public policy, information systems, and science",
+        "Research centers and institutes focusing on AI, robotics, data science, and interdisciplinary innovation",
+        "Startup incubation and technology transfer initiatives"
+      ],
+      "team_size": "Not found",
+      "key_people": [
+        "Not found"
+      ],
+      "funding_or_financials": "Not found",
+      "market_size": "Not found",
+      "recent_news": [
+        "Carnegie Mellon University continues to lead in AI, robotics, and data science research and education.",
+        "CMU has partnered with the U.S. military for over a century to advance innovation and workforce readiness.",
+        "The university has launched more than 400 startups and created over 152 spinoff companies.",
+        "CMU attracts major companies like Google, Intel, Uber, and GE to locate operations in Pittsburgh.",
+        "CMU operates multiple campuses including Pittsburgh, Silicon Valley, Qatar, and Africa."
+      ],
+      "competitors": [
+        "Massachusetts Institute of Technology (MIT)",
+        "Stanford University",
+        "University of California, Berkeley",
+        "Georgia Institute of Technology",
+        "California Institute of Technology (Caltech)"
+      ],
+      "sources": [
+        {
+          "title": "Carnegie Mellon University",
+          "url": "https://en.wikipedia.org/wiki/Carnegie_Mellon_University",
+          "publisher": "Wikipedia",
+          "date": null,
+          "snippet": "Carnegie Mellon University (CMU) is a private research university in Pittsburgh, Pennsylvania, United States. The institution was established in 1900 by Andrew Carnegie as the Carnegie Technical Schools. In 1912, it became the Carnegie Institute of Technology and began granting four-year degrees. In 1967, it became Carnegie Mellon University through its merger with the Mellon Institute of Industrial Research, founded in 1913 by Andrew Mellon and Richard B. Mellon and formerly a part of the University of Pittsburgh."
+        },
+        {
+          "title": "Carnegie Mellon University | CMU",
+          "url": "https://www.cmu.edu/",
+          "publisher": "cmu.edu",
+          "date": null,
+          "snippet": "Carnegie Mellon University | CMU [...] For more than a century, Carnegie Mellon University has partnered with the U.S. military to advance innovation, education and workforce readiness. From wartime training to today\u2019s leadership in AI, robotics and data science, CMU continues to help develop the talent and technologies needed to meet evolving national security challenges. [...] Carnegie Mellon University has been at the forefront of artificial intelligence since its early days, helping to shape the field through bold ideas, pioneering research and visionary leadership. From founding key institutions to launching entirely new areas of study, CMU has played a central role in advancing computing and AI. Today, our work continues to drive innovation and make a lasting impact across industries and society. [...]"
+        },
+        {
+          "title": "About Carnegie Mellon | Carnegie Mellon University",
+          "url": "https://www.cmu.edu/about/index.html",
+          "publisher": "cmu.edu",
+          "date": "2025-04-17T13:19:49.000Z",
+          "snippet": "At Carnegie Mellon University, academic and research excellence isn't just what we strive for \u2014 it's the uncompromising standard. Our entrepreneurial spirit means no pursuit is too complex, and no question is too unconventional to explore. [...] CMU fosters a community of fearless trailblazers united by a shared passion for innovation and excellence. Learn about our strategic partnerships and global presence. [...] Carnegie Mellon is a university without borders, with campuses in Pittsburgh, Silicon Valley, Qatar and Africa."
+        },
+        {
+          "title": "Research & Creativity | Carnegie Mellon University",
+          "url": "https://www.cmu.edu/research",
+          "publisher": "cmu.edu",
+          "date": "2025-04-17T14:52:14.000Z",
+          "snippet": "Since our founding in 1900, Carnegie Mellon University students and faculty have used creativity and ingenuity to drive cross-disciplinary breakthroughs. [...] As the birthplace of AI, CM [...] the-art [...] CMU spearheads AI innovation and solutions through our multidisciplinary approach, integrating the latest technologies with ethics at every level. [...] With more than 100 CMU research centers and institutions, our students tackle complex challenges across a broad range of interests and industries."
+        },
+        {
+          "title": "https://www.cmu.edu/sites/default/files/documents/cmu-fact-sheet.pdf",
+          "url": "https://www.cmu.edu/sites/default/files/documents/cmu-fact-sheet.pdf",
+          "publisher": "cmu.edu",
+          "date": "2025-10-03T00:00:00.000Z",
+          "snippet": "Carnegie Mellon University has been a birthplace of innovation since its founding in 1900. Today, CMU is a global leader bringing groundbreaking ideas to market and creating successful startup businesses. Our award-winning faculty are renowned for working closely with students to solve major scientific, technological and societal challenges. We put a strong emphasis on creating things \u2014 from art to robots. We have become a model for economic development in forming partnerships with companies such as Uber, Google and Disney. Our students are recruited by some of the world\u2019s most innovative companies. [...] To date, the CMU community has launched more than 400 startups and created more than 152 spinoff companies."
+        }
+      ]
+    },
+    {
+      "name": "New York University",
+      "url": "https://www.nyu.edu/",
+      "company_type": "private",
+      "ticker": null,
+      "business_model": "Private research university offering diverse academic programs and global education through degree-granting campuses and global academic centers.",
+      "products": [
+        "Undergraduate degree programs",
+        "Graduate degree programs",
+        "Professional degree programs",
+        "Global academic centers and study abroad programs"
+      ],
+      "team_size": "More than 19,000 employees",
+      "key_people": [
+        "Not found"
+      ],
+      "funding_or_financials": "Not found",
+      "market_size": "One of the largest private universities in the United States with over 50,000 students and a global presence in education.",
+      "recent_news": [
+        "NYU is a leader in global education with degree-granting campuses in New York, Abu Dhabi, and Shanghai.",
+        "NYU operates 13 global academic centers and research programs in more than 25 countries.",
+        "NYU has more international students and more students studying abroad than any other US university.",
+        "NYU's academic programs include over 270 areas of study across 20 schools and colleges.",
+        "NYU is one of the largest employers in New York City with more than 19,000 employees."
+      ],
+      "competitors": [
+        "Columbia University",
+        "University of Pennsylvania",
+        "Boston University",
+        "University of Southern California",
+        "New School"
+      ],
+      "sources": [
+        {
+          "title": "New York University",
+          "url": "https://en.wikipedia.org/wiki/New_York_University",
+          "publisher": "Wikipedia",
+          "date": null,
+          "snippet": "New York University (NYU) is a private research university in New York City, United States. Chartered in 1831 by the New York State Legislature, NYU was founded in 1832 by Albert Gallatin as a non-denominational all-male institution near City Hall based on a curriculum focused on a secular education. The university moved in 1833 and has maintained its main campus in Greenwich Village surrounding Washington Square Park. Since then, the university has added an engineering school in Brooklyn's MetroTech Center and graduate schools throughout Manhattan."
+        },
+        {
+          "title": "New York University",
+          "url": "https://nyu.edu/",
+          "publisher": "nyu.edu",
+          "date": null,
+          "snippet": "New York University [...] # New York University [...] NYU is as dynamic and groundbreaking as the city we call home. We remove the boundaries between the classroom and the world around us so that our students, faculty, and staff can meet today\u2019s greatest challenges and opportunities with the confidence and grit NYUers are known for. With over 270 areas of study and a vibrant international community committed to making connections across disciplines and differences, this is the place to imagine what could be\u2014and to start building it together. [...] ## In and of the World [...] ## In and of the World [...] The NYU Center brings together researchers tapping into AI to develop intelligent machines that can sense, navigate, and act autonomously [...] complex real-world environments [...] ## Envision Yourself Here [...] Discover life at NYU"
+        },
+        {
+          "title": "About NYU",
+          "url": "https://www.nyu.edu/about.html",
+          "publisher": "nyu.edu",
+          "date": null,
+          "snippet": "Since its founding in 1831, NYU has been an innovator in higher education, reaching out to an emerging middle class, embracing an urban identity and professional focus, and promoting a global vision that informs its 20 schools and colleges. [...] Today, that trailblazing spirit makes NYU one of the most prominent and respected research universities in the world, featuring top-ranked academic programs and accepting fewer than one in eight undergraduates. Anchored in New York City and with degree-granting campuses in Abu Dhabi and Shanghai as well as 12 study away sites throughout the world, NYU is a leader in global education, with more international students and more students studying abroad than any other US university. [...] - 3 Campuses in New York, Abu Dhabi, and Shanghai [...] - 12 Global academic centers [...] - 20 Schools and colleges [...] - 25 Research programs in more than 25 countries"
+        },
+        {
+          "title": "NYU at a Glance",
+          "url": "https://www.nyu.edu/about/news-publications/nyu-at-a-glance.html",
+          "publisher": "nyu.edu",
+          "date": null,
+          "snippet": "Founded in 1831, New York University is one of the largest private universities in the United States. The University has degree-granting campuses in New York, Abu Dhabi, and Shanghai and operates 13 global academic centers and research programs in more than 25 countries. New York University is also one of the largest employers in New York City, with more than 19,000 employees."
+        }
+      ]
+    }
+  ],
+  "analysis": [
+    {
+      "name": "Yves Saint Laurent",
+      "market_opportunity": {
+        "score": 7,
+        "narrative": "Yves Saint Laurent operates in the global luxury fashion and cosmetics markets, which are large and resilient, but the exact market size is not provided. The brand's presence in multiple product categories (couture, ready-to-wear, accessories, footwear, and cosmetics) suggests diversified exposure to high-value segments. However, the absence of specific market size data limits the ability to fully assess the scale of the opportunity.",
+        "confidence": "medium"
+      },
+      "competitive_position": {
+        "score": 8,
+        "narrative": "YSL is a well-established luxury brand with a long heritage, strong brand recognition, and a diversified product portfolio. It competes with top-tier luxury houses such as Gucci, Chanel, Dior, Prada, and Louis Vuitton. The appointment of experienced leadership (CEO C\u00e9dric Charbit and Creative Director Anthony Vaccarello) further strengthens its position. However, the market is highly competitive and dominated by a few powerful players.",
+        "confidence": "high"
+      },
+      "growth_potential": {
+        "score": 6,
+        "narrative": "YSL reported 2.9 billion euros in sales in 2024, indicating significant scale. The recent CEO appointment may signal a new phase of growth or strategic change. However, there is no information on historical growth rates, geographic expansion, or new product initiatives, making it difficult to assess future growth prospects with high confidence.",
+        "confidence": "medium"
+      },
+      "business_model_strength": {
+        "score": 8,
+        "narrative": "YSL's business model is robust, with revenue streams from couture, ready-to-wear, accessories, footwear, and a cosmetics line (the latter owned by L'Or\u00e9al). The brand's luxury positioning allows for premium pricing and strong margins. The partnership with L'Or\u00e9al for cosmetics leverages external expertise and distribution. However, limited financial details prevent a deeper assessment.",
+        "confidence": "medium"
+      },
+      "overall_score": 7,
+      "one_line_verdict": "Yves Saint Laurent is a leading luxury brand with strong competitive positioning and a robust business model, though some data gaps limit a full assessment of its growth and market opportunity."
+    },
+    {
+      "name": "Carnegie Mellon University",
+      "market_opportunity": {
+        "score": 8,
+        "narrative": "Carnegie Mellon University (CMU) operates in the global higher education and research market, with a strong focus on technology, AI, robotics, and interdisciplinary innovation. Its global campuses (Pittsburgh, Silicon Valley, Qatar, Africa) and partnerships with industry and government (including the U.S. military) position it to address large and growing markets in education, research, and technology transfer. However, the exact market size is not provided, so the score reflects strong qualitative evidence but lacks quantitative support.",
+        "confidence": "medium"
+      },
+      "competitive_position": {
+        "score": 9,
+        "narrative": "CMU is consistently cited as a leader in AI, robotics, and data science, with a long history of innovation and industry partnerships. It competes with top-tier institutions like MIT, Stanford, and Berkeley, but its record of launching over 400 startups and attracting major tech companies to Pittsburgh demonstrates a robust competitive edge. Its multidisciplinary approach and global presence further strengthen its position. The only limitation is the absence of detailed financial or ranking data.",
+        "confidence": "high"
+      },
+      "growth_potential": {
+        "score": 8,
+        "narrative": "CMU shows strong growth potential through its ongoing leadership in emerging fields (AI, robotics, data science), expansion into new geographies (Qatar, Africa), and successful commercialization of research (400+ startups, 152+ spinoffs). Its ability to attract industry partners and adapt to new technological trends supports continued growth. However, the lack of specific financial or enrollment growth data tempers the score.",
+        "confidence": "medium"
+      },
+      "business_model_strength": {
+        "score": 8,
+        "narrative": "CMU's business model is built on academic and research excellence, industry and government partnerships, and a proven track record in technology transfer and startup incubation. Its diversified revenue streams (education, research grants, partnerships, commercialization) and global reach are strengths. However, the absence of detailed financials or team size data limits a full assessment.",
+        "confidence": "medium"
+      },
+      "overall_score": 8,
+      "one_line_verdict": "Carnegie Mellon University is a global leader in technology-driven education and research, with strong competitive positioning and significant growth potential, though some quantitative data is missing."
+    },
+    {
+      "name": "New York University",
+      "market_opportunity": {
+        "score": 9,
+        "narrative": "NYU operates in the global higher education market, which is vast and growing, especially for institutions with international reach and diverse academic offerings. With over 50,000 students, campuses in New York, Abu Dhabi, and Shanghai, and 13 global academic centers, NYU is well-positioned to capture demand from both domestic and international students. Its leadership in study abroad and international student enrollment further expands its addressable market.",
+        "confidence": "high"
+      },
+      "competitive_position": {
+        "score": 8,
+        "narrative": "NYU is recognized as a leading private research university with a strong brand, selective admissions (accepting fewer than one in eight undergraduates), and a global presence. It competes with other elite institutions such as Columbia, UPenn, and USC. Its unique global footprint and large international student body provide differentiation, though competition among top-tier universities remains intense.",
+        "confidence": "high"
+      },
+      "growth_potential": {
+        "score": 7,
+        "narrative": "NYU has demonstrated growth through international expansion and program diversification, with over 270 areas of study and a continued focus on global education. However, the mature nature of the higher education sector and potential regulatory or demographic headwinds may limit explosive growth. Still, NYU's global strategy and reputation suggest continued steady growth.",
+        "confidence": "medium"
+      },
+      "business_model_strength": {
+        "score": 8,
+        "narrative": "NYU's business model is robust, leveraging tuition from a large and diverse student body, global campuses, and a wide array of academic programs. Its status as one of the largest employers in NYC and its ability to attract international students support financial stability. However, lack of detailed financial data limits a full assessment of revenue diversity and resilience.",
+        "confidence": "medium"
+      },
+      "overall_score": 8,
+      "one_line_verdict": "NYU is a globally prominent private university with strong market positioning and a robust business model, well-placed for continued leadership in international higher education."
+    }
+  ],
+  "risks": [
+    {
+      "name": "Yves Saint Laurent",
+      "key_risks": [
+        "Dependence on L'Or\u00e9al for cosmetics revenue and brand management could create misalignment in brand strategy or quality control, as YSL Beauty is not directly owned or operated by YSL.",
+        "Recent CEO appointment (C\u00e9dric Charbit in 2024) introduces leadership transition risk, especially without details on strategic direction or integration with existing creative leadership.",
+        "Highly competitive market with entrenched rivals (Gucci, Chanel, Dior, Prada, Louis Vuitton) could limit YSL's ability to gain additional market share or maintain pricing power.",
+        "Lack of disclosed historical growth rates or geographic expansion data makes it difficult to assess whether recent sales figures represent sustainable growth or a temporary peak.",
+        "No information on team size or operational scale raises questions about organizational capacity to execute on growth or adapt to market changes."
+      ],
+      "analyst_weaknesses": [
+        "Assumes diversified product portfolio automatically reduces risk, but does not address potential overextension or dilution of brand identity.",
+        "Rates competitive position highly without discussing specific differentiators or recent performance relative to competitors.",
+        "Growth potential is scored without supporting data on past growth, new markets, or innovation pipeline.",
+        "Business model strength is asserted despite limited financial transparency and lack of cost structure or margin data."
+      ],
+      "open_questions": [
+        "How much of YSL's total revenue and profit is derived from the cosmetics line managed by L'Or\u00e9al, and how does this affect overall brand control?",
+        "What is the strategic vision of the new CEO, and how will it impact YSL's direction and performance?",
+        "Are there any recent or planned product launches, geographic expansions, or digital initiatives that could materially affect growth?",
+        "How does YSL's recent sales performance compare to its main competitors over the same period?",
+        "What is the company's organizational structure and capacity to support further growth or respond to market shifts?"
+      ],
+      "risk_level": "medium",
+      "sources_to_verify": [
+        "YSL's official financial disclosures or parent company reports for detailed revenue breakdowns and growth rates.",
+        "L'Or\u00e9al's reporting on YSL Beauty's performance and contractual relationship details.",
+        "Industry reports comparing YSL's performance to competitors.",
+        "Press releases or interviews outlining the new CEO's strategy and vision."
+      ]
+    },
+    {
+      "name": "Carnegie Mellon University",
+      "key_risks": [
+        "Heavy reliance on continued industry and government partnerships (e.g., U.S. military); any reduction in these relationships could impact funding and research opportunities.",
+        "Expansion into new geographies (Qatar, Africa) may expose CMU to political, regulatory, and operational risks that are not addressed in the analysis.",
+        "The analysis assumes ongoing leadership in AI, robotics, and data science, but does not consider the risk of rapid technological change or increased competition from peer institutions.",
+        "No financial data is provided; CMU's ability to sustain or grow its operations in the face of rising costs or potential funding shortfalls is unassessed.",
+        "The success of technology transfer and startup incubation is highlighted, but there is no discussion of the long-term viability or impact of these startups and spinoffs."
+      ],
+      "analyst_weaknesses": [
+        "Assumes strong market opportunity and growth potential without quantitative market size, financials, or enrollment data.",
+        "Competitive position is rated highly based on qualitative factors, but lacks supporting data such as rankings, research output metrics, or funding comparisons.",
+        "Business model strength is asserted without details on revenue breakdown, cost structure, or endowment size.",
+        "No discussion of risks associated with global expansion or dependence on specific partners."
+      ],
+      "open_questions": [
+        "What proportion of CMU's revenue comes from industry/government partnerships versus tuition or endowment?",
+        "How sustainable are the university's research and startup incubation outcomes over the long term?",
+        "What are the specific challenges or risks faced in operating campuses in Qatar and Africa?",
+        "How does CMU's research funding and output compare quantitatively to its top competitors?",
+        "What contingency plans exist if major partners reduce or withdraw support?"
+      ],
+      "risk_level": "medium",
+      "sources_to_verify": [
+        "CMU's annual financial reports or fact sheets for revenue breakdown and funding sources.",
+        "Data on startup/spinoff survival rates and long-term impact.",
+        "Comparative research output and funding statistics versus MIT, Stanford, etc.",
+        "Information on regulatory and operational risks in Qatar and Africa.",
+        "Details of major partnership agreements and their terms."
+      ]
+    },
+    {
+      "name": "New York University",
+      "key_risks": [
+        "Heavy reliance on international student enrollment exposes NYU to geopolitical, visa, and regulatory risks that could sharply reduce tuition revenue.",
+        "Operating degree-granting campuses in Abu Dhabi and Shanghai subjects NYU to local government policies, censorship, and potential reputational risks if academic freedom is compromised.",
+        "The analysis assumes continued high demand for global education, but demographic shifts (e.g., declining college-age population in the US) could reduce applicant pools.",
+        "No financial data is provided; NYU's high tuition and large payroll may make it vulnerable to economic downturns or shifts in student loan policy.",
+        "Intense competition from peer institutions (Columbia, UPenn, etc.) could erode NYU's market share, especially if competitors increase financial aid or expand global offerings."
+      ],
+      "analyst_weaknesses": [
+        "No discussion of the risks associated with operating in politically sensitive regions (Abu Dhabi, Shanghai).",
+        "Assumes international student demand will remain strong without addressing potential disruptions (e.g., pandemics, visa restrictions).",
+        "Lack of financial transparency\u2014no data on endowment, debt, or revenue diversification, making business model strength hard to assess.",
+        "Does not address potential reputational risks from controversies or academic freedom issues at global campuses.",
+        "Minimal consideration of regulatory or policy changes that could impact tuition revenue or enrollment."
+      ],
+      "open_questions": [
+        "What proportion of NYU's revenue comes from international students, and how sensitive is the budget to changes in this segment?",
+        "How does NYU manage academic freedom and compliance with local laws at its Abu Dhabi and Shanghai campuses?",
+        "What is NYU's current financial health (endowment size, debt levels, operating margins)?",
+        "How is NYU preparing for potential declines in US or international student demand?",
+        "What contingency plans exist for sudden regulatory or geopolitical disruptions affecting global campuses?"
+      ],
+      "risk_level": "medium",
+      "sources_to_verify": [
+        "NYU's annual financial reports or audited statements.",
+        "Public disclosures or news coverage regarding academic freedom at NYU Abu Dhabi and NYU Shanghai.",
+        "US Department of Education data on international student enrollment trends.",
+        "NYU's official statements on risk management and contingency planning for global operations."
+      ]
+    }
+  ],
+  "memo": "# Investment Recommendation Memo\n\n## Executive Summary\n\nThis memo evaluates three organizations\u2014Yves Saint Laurent (YSL), Carnegie Mellon University (CMU), and New York University (NYU)\u2014across market opportunity, competitive position, growth potential, and business model strength. Each operates in a distinct sector: luxury fashion (YSL), technology-driven higher education and research (CMU), and global higher education (NYU). All three demonstrate strong brand positioning and global reach, but data gaps\u2014particularly in financial transparency\u2014limit the depth of analysis. After a side-by-side comparison, **Carnegie Mellon University** emerges as the top investment pick due to its leadership in high-growth technology fields, robust industry partnerships, and proven innovation pipeline.\n\n---\n\n## Company Profiles\n\n### Yves Saint Laurent (YSL)\n- **Type:** Private luxury fashion house\n- **Business Model:** Couture, ready-to-wear, accessories, footwear, and cosmetics (YSL Beauty, owned by L'Or\u00e9al)\n- **2024 Sales:** \u20ac2.9 billion ([Wikipedia](https://en.wikipedia.org/wiki/Yves_Saint_Laurent_(fashion_house)))\n- **Key People:** C\u00e9dric Charbit (CEO, 2024), Anthony Vaccarello (Creative Director, since 2016)\n- **Competitors:** Gucci, Chanel, Dior, Prada, Louis Vuitton\n\n### Carnegie Mellon University (CMU)\n- **Type:** Private research university\n- **Business Model:** Academic programs, research centers, startup incubation, technology transfer, global campuses\n- **Scale:** 400+ startups launched, 152+ spinoffs ([CMU Fact Sheet](https://www.cmu.edu/sites/default/files/documents/cmu-fact-sheet.pdf))\n- **Global Presence:** Campuses in Pittsburgh, Silicon Valley, Qatar, Africa\n- **Competitors:** MIT, Stanford, UC Berkeley, Georgia Tech, Caltech\n\n### New York University (NYU)\n- **Type:** Private research university\n- **Business Model:** Undergraduate, graduate, and professional programs; global campuses and academic centers\n- **Scale:** 50,000+ students, 19,000+ employees ([NYU at a Glance](https://www.nyu.edu/about/news-publications/nyu-at-a-glance.html))\n- **Global Presence:** Campuses in New York, Abu Dhabi, Shanghai; 13 global academic centers\n- **Competitors:** Columbia, UPenn, Boston University, USC, New School\n\n---\n\n## Side-by-Side Comparison\n\n| Category                | Yves Saint Laurent (YSL) | Carnegie Mellon University (CMU) | New York University (NYU) |\n|-------------------------|--------------------------|-----------------------------------|---------------------------|\n| **Market Opportunity**  | 7/10<br>Large, resilient luxury market; data gap on market size ([Analysis](#)) | 8/10<br>Global tech/education market; strong qualitative evidence ([Analysis](#)) | 9/10<br>Vast global education market; strong international demand ([Analysis](#)) |\n| **Competitive Position**| 8/10<br>Iconic brand, strong leadership, but intense competition ([Analysis](#)) | 9/10<br>Leader in AI/tech, strong partnerships, global reach ([Analysis](#)) | 8/10<br>Elite status, global footprint, but intense peer competition ([Analysis](#)) |\n| **Growth Potential**    | 6/10<br>Recent sales strong, but no historical or pipeline data ([Analysis](#)) | 8/10<br>Leadership in emerging fields, global expansion, startup success ([Analysis](#)) | 7/10<br>Steady growth via global expansion, but mature sector ([Analysis](#)) |\n| **Business Model Strength** | 8/10<br>Diversified luxury, premium pricing, L'Or\u00e9al partnership ([Analysis](#)) | 8/10<br>Diversified revenue, proven tech transfer, global campuses ([Analysis](#)) | 8/10<br>Large, diverse student body, global tuition streams ([Analysis](#)) |\n| **Overall Score**       | 7/10                     | 8/10                              | 8/10                      |\n| **Key Risks**           | Medium<br>Brand control (L'Or\u00e9al), leadership transition, data gaps ([Risks](#)) | Medium<br>Partner reliance, global expansion risks, no financials ([Risks](#)) | Medium<br>International exposure, regulatory/geopolitical, no financials ([Risks](#)) |\n| **Data Gaps**           | No team size, market size, or growth rates; unclear revenue split with L'Or\u00e9al | No financials, team size, or quantitative market data | No financials, revenue breakdown, or endowment data |\n\n---\n\n## Recommendation\n\n### Invest in: **Carnegie Mellon University (CMU)**\n\n**Rationale:**\n- **Leadership in High-Growth Sectors:** CMU is a global leader in AI, robotics, and data science, fields with strong long-term growth prospects ([CMU Fact Sheet](https://www.cmu.edu/sites/default/files/documents/cmu-fact-sheet.pdf)).\n- **Proven Innovation Pipeline:** Over 400 startups and 152+ spinoffs demonstrate a robust track record in technology transfer and commercialization ([CMU Fact Sheet](https://www.cmu.edu/sites/default/files/documents/cmu-fact-sheet.pdf)).\n- **Strong Competitive Position:** CMU\u2019s partnerships with industry and government (e.g., U.S. military, Google, Uber) and global campus network provide resilience and access to diverse markets ([CMU About](https://www.cmu.edu/about/index.html)).\n- **Growth Potential:** Expansion into new geographies and continued leadership in emerging technologies support future growth ([CMU Research](https://www.cmu.edu/research)).\n- **Balanced Risk Profile:** While reliant on partnerships and lacking detailed financials, CMU\u2019s diversified model and innovation focus mitigate many sector-specific risks.\n\n**Caveats & Data Gaps:**\n- No detailed financials, revenue breakdown, or quantitative market size data.\n- Long-term sustainability of startups and global campus operations requires further diligence.\n- Comparative research output and funding data versus peers are not provided.\n\n**Runner-Up:** NYU is also well-positioned in global higher education, but faces greater exposure to geopolitical and regulatory risks, and its growth potential is more limited by sector maturity. YSL, while a strong luxury brand, suffers from data gaps and potential strategic misalignment with L'Or\u00e9al.\n\n---\n\n## Sources\n\n- [Yves Saint Laurent (fashion house) - Wikipedia](https://en.wikipedia.org/wiki/Yves_Saint_Laurent_(fashion_house))\n- [Yves Saint Laurent Official Website](https://www.ysl.com)\n- [Carnegie Mellon University - Wikipedia](https://en.wikipedia.org/wiki/Carnegie_Mellon_University)\n- [Carnegie Mellon University | CMU](https://www.cmu.edu/)\n- [CMU Fact Sheet (PDF)](https://www.cmu.edu/sites/default/files/documents/cmu-fact-sheet.pdf)\n- [About Carnegie Mellon](https://www.cmu.edu/about/index.html)\n- [Research & Creativity at CMU](https://www.cmu.edu/research)\n- [New York University - Wikipedia](https://en.wikipedia.org/wiki/New_York_University)\n- [NYU Official Website](https://www.nyu.edu/)\n- [About NYU](https://www.nyu.edu/about.html)\n- [NYU at a Glance](https://www.nyu.edu/about/news-publications/nyu-at-a-glance.html)\n\n---\n\n**Note:** All factual claims are traceable to the sources above. Key data gaps\u2014especially around financials and quantitative performance\u2014should be addressed in further due diligence.",
+  "start_time": 1778092133.9079194,
+  "run_log": {
+    "agent_runs": [
+      {
+        "agent": "Identity Agent",
+        "company": "YSL",
+        "start_time": 1778092133.9079194,
+        "end_time": 1778092138.0374691,
+        "latency_seconds": 4.13,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Identity Agent",
+        "company": "CMU",
+        "start_time": 1778092138.0374691,
+        "end_time": 1778092140.020409,
+        "latency_seconds": 1.983,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Identity Agent",
+        "company": "NYU",
+        "start_time": 1778092140.020409,
+        "end_time": 1778092143.3038862,
+        "latency_seconds": 3.283,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Research Agent",
+        "company": "Yves Saint Laurent",
+        "start_time": 1778092143.3038862,
+        "end_time": 1778092155.2080617,
+        "latency_seconds": 11.904,
+        "tool_calls": [
+          "get_wiki_summary",
+          "get_financial_data",
+          "search_exa_for_company",
+          "search_web_for_company"
+        ],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Analyst Agent",
+        "company": "Yves Saint Laurent",
+        "start_time": 1778092155.2080617,
+        "end_time": 1778092161.2736967,
+        "latency_seconds": 6.066,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Research Agent",
+        "company": "New York University",
+        "start_time": 1778092143.3586526,
+        "end_time": 1778092163.6084356,
+        "latency_seconds": 20.25,
+        "tool_calls": [
+          "get_wiki_summary",
+          "get_financial_data",
+          "search_exa_for_company",
+          "search_web_for_company"
+        ],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Research Agent",
+        "company": "Carnegie Mellon University",
+        "start_time": 1778092143.3356535,
+        "end_time": 1778092164.09048,
+        "latency_seconds": 20.755,
+        "tool_calls": [
+          "get_wiki_summary",
+          "get_financial_data",
+          "search_exa_for_company",
+          "search_web_for_company"
+        ],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Analyst Agent",
+        "company": "New York University",
+        "start_time": 1778092163.6084356,
+        "end_time": 1778092168.831532,
+        "latency_seconds": 5.223,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Critic Agent",
+        "company": "Yves Saint Laurent",
+        "start_time": 1778092161.2736967,
+        "end_time": 1778092169.2937806,
+        "latency_seconds": 8.02,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Analyst Agent",
+        "company": "Carnegie Mellon University",
+        "start_time": 1778092164.0914793,
+        "end_time": 1778092169.3644738,
+        "latency_seconds": 5.273,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Critic Agent",
+        "company": "New York University",
+        "start_time": 1778092168.831532,
+        "end_time": 1778092173.4530456,
+        "latency_seconds": 4.622,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Critic Agent",
+        "company": "Carnegie Mellon University",
+        "start_time": 1778092169.3644738,
+        "end_time": 1778092177.6929877,
+        "latency_seconds": 8.329,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      },
+      {
+        "agent": "Decision Agent",
+        "company": "all",
+        "start_time": 1778092177.6939902,
+        "end_time": 1778092199.5640235,
+        "latency_seconds": 21.87,
+        "tool_calls": [],
+        "success": true,
+        "error": null
+      }
+    ],
+    "total_latency_seconds": 65.65710377693176,
+    "warnings": []
+  }
+}
