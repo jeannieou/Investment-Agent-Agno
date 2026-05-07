@@ -1,4 +1,4 @@
-# Investment Research Multi-Agent System
+# Option C: Investment Research Multi-Agent System
 
 Agno-based multi-agent system for researching companies and producing an investment recommendation memo with cited sources.
 
