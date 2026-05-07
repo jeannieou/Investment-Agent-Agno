@@ -4,6 +4,10 @@ Agno-based multi-agent system for researching companies and producing an investm
 
 Current phase: **Stage 7 complete**. The repo includes a stable no-key mock demo, live OpenAI/DeepSeek-backed agents, real research tools, AgentOS UI wiring, run logs, and saved example artifacts.
 
+# Demo Video Link:
+
+https://youtu.be/nWVp4i-ABZY
+
 ## What It Does
 
 Input:
