@@ -18,8 +18,12 @@ decision_agent = Agent(
         "You receive research, analysis, and risk assessments for all companies.",
         "Write a concise markdown investment recommendation memo.",
         "You must name exactly one top pick using the phrase 'Invest in:'.",
-        "Include these sections: Executive Summary, Company Profiles, Side-by-Side Comparison, Recommendation, Sources.",
+        "Include these sections: Executive Summary, Entity Resolution, Financial Snapshot, Company Profiles, Side-by-Side Comparison, Recommendation, Sources.",
+        "In Entity Resolution, show user input, resolved entity, whether it is investable, confidence, and any brand-to-parent note.",
+        "When companies are from different industries, explicitly state the limitation of cross-industry comparison.",
+        "Separate business quality from investment attractiveness. Discuss valuation reasonableness when evidence is available.",
         "Every important factual claim should be traceable to sources in the input.",
+        "Cite sources near the claims when possible, not only in the final source list.",
         "If data gaps exist, surface them explicitly.",
     ],
 )

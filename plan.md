@@ -1,6 +1,6 @@
 # Implementation Plan
 
-This plan builds the investment research multi-agent system in small verifiable stages. The first MVP should appear by Stage 3 or Stage 4; later stages improve real-world quality, reliability, and demo polish.
+This plan builds the investment research multi-agent system in small verifiable stages. The first MVP should appear by Stage 3 or Stage 4; later stages improve real-world quality, reliability, demo polish, and investment research quality.
 
 ## Stage 0 - Project Skeleton
 
@@ -537,6 +537,199 @@ python -m app.main --provider openai "Nvidia,AMD,Intel" --save-example
 
 ---
 
+## Stage 8 - Investment Quality Upgrade
+
+**Goal:** Improve the real memo from "LLM-generated company summaries" into a more defensible investment research workflow with stronger entity resolution, primary financial data, valuation context, and source validation.
+
+**Tasks:**
+- Upgrade company identity resolution:
+  - preserve the user's raw input, for example `LV`, `KFC`, or `Google`
+  - identify legal name, trade name, parent company, ticker, exchange, country, and currency when available
+  - distinguish investable entities from brands, subsidiaries, private companies, delisted companies, and ambiguous names
+  - require source-backed resolution notes
+  - mark low-confidence or ambiguous identities for warning or user confirmation
+- Add entity-resolution tools:
+  - Wikipedia summary/search for trade name and aliases
+  - Exa search for official company pages, investor relations pages, and ownership evidence
+  - SEC EDGAR for US-listed entities
+  - optional non-US public company disclosure links from official investor relations pages
+- Add a financial snapshot schema:
+  - revenue
+  - revenue growth
+  - operating margin
+  - net income or profit growth
+  - free cash flow when available
+  - debt or leverage indicator
+  - valuation fields such as market cap and P/E when available
+  - reporting period, currency, and source URLs
+- Add financial data collection logic:
+  - public US companies: prefer SEC EDGAR and company investor relations pages
+  - public non-US companies: prefer official annual/interim reports and investor relations pages
+  - private companies/startups: report funding, estimated scale, disclosed revenue if available, and explicitly mark gaps
+  - brands/subsidiaries: identify parent company financials and clearly separate brand data from parent-company data
+- Add financial source reading and extraction:
+  - keep SEC XBRL/companyfacts as the first choice for US public companies
+  - read official HTML investor-relations/key-figures/results pages before reading PDFs
+  - use a lightweight HTML reader, for example `requests` plus `BeautifulSoup` or `trafilatura`
+  - use an existing PDF parser only as fallback, for example `pypdf`, `pdfplumber`, or `PyMuPDF`
+  - limit fetched text length before sending it to an LLM extractor to control token cost
+  - do not treat a discovered annual-report link as extracted financial data until the source text has been read and parsed
+- Add a Financial Extractor Agent:
+  - input is company identity plus source URL plus extracted source text
+  - output is typed financial metric candidates, not free-form prose
+  - use the LLM for extraction/labeling, not for web browsing
+  - require each metric candidate to include metric name, value, period, currency, source URL, source quality, confidence, and caveat
+  - accept only high-confidence or clearly caveated candidates into `FinancialSnapshot`
+- Add source relevance and validation:
+  - reject sources that mention a company name but are about the wrong entity
+  - require each critical financial claim to carry at least one source URL
+  - prefer primary sources over Wikipedia or general web pages for financial claims
+  - add warnings when only weak secondary sources are available
+- Improve analysis methodology:
+  - separate company quality from investment attractiveness
+  - add valuation reasonableness instead of scoring only business quality
+  - explain cross-industry comparison limits when companies are from different sectors
+  - classify companies by investment profile, for example defensive, cyclical, growth, turnaround, luxury, platform, or startup
+  - make the recommendation state whether it is choosing the best absolute investment or the best within the provided set
+- Update Analyst and Decision prompts:
+  - require score rationales tied to specific data points
+  - require data gaps to affect confidence
+  - require source citations in memo sections, not only in a final source list
+- Add tests and examples for difficult identity cases:
+  - `LV` -> LVMH, if source confidence is high
+  - `KFC` -> Yum! Brands or a clarification note about Yum China when relevant
+  - `Google` -> Alphabet
+  - `Twitter` -> private/not currently public
+  - ambiguous inputs return warnings instead of silently choosing the wrong entity
+
+**Input format:**
+```python
+WorkflowState(
+    raw_input=["LV", "KFC", "Google"]
+)
+```
+
+or from AgentOS UI:
+
+```text
+LV, KFC, Google
+```
+
+**Intermediate output format:**
+```python
+CompanyIdentity(
+    raw_input="KFC",
+    name="Yum! Brands",
+    legal_name="Yum! Brands, Inc.",
+    trade_name="KFC",
+    aliases=["KFC", "Kentucky Fried Chicken", "Yum! Brands"],
+    parent_company="Yum! Brands, Inc.",
+    ticker="YUM",
+    exchange="NYSE",
+    country="United States",
+    currency="USD",
+    company_type="public",
+    is_investable_entity=True,
+    confidence="high",
+    resolution_note="KFC is a brand operated by Yum! Brands, which is the investable public parent company.",
+    sources=[EvidenceSource(...)]
+)
+```
+
+```python
+FinancialSnapshot(
+    name="Yum! Brands",
+    ticker="YUM",
+    period="FY2025",
+    currency="USD",
+    revenue="...",
+    revenue_growth="...",
+    operating_margin="...",
+    net_income="...",
+    free_cash_flow="...",
+    debt_or_leverage="...",
+    market_cap="...",
+    pe_ratio="...",
+    sources=[EvidenceSource(...)]
+)
+```
+
+```python
+FinancialExtractionRequest(
+    company_name="LVMH",
+    source_url="https://www.lvmh.com/investors/key-figures",
+    source_quality="primary",
+    source_text="LVMH ... 80.8 billion euros revenue in 2025 ..."
+)
+```
+
+```python
+FinancialExtractionResult(
+    metrics=[
+        FinancialMetricCandidate(
+            metric="revenue",
+            value="80.8 billion",
+            period="FY2025",
+            currency="EUR",
+            source_url="https://www.lvmh.com/investors/key-figures",
+            source_quality="primary",
+            confidence="high",
+            caveat="Official LVMH key figures page; group-level revenue."
+        )
+    ]
+)
+```
+
+**Final output format:**
+```markdown
+# Investment Recommendation Memo
+
+## Executive Summary
+...
+
+## Entity Resolution
+| User Input | Resolved Entity | Investable? | Confidence | Note |
+|---|---|---:|---|---|
+| KFC | Yum! Brands | Yes | High | KFC is analyzed through public parent Yum! Brands. |
+
+## Financial Snapshot
+...
+
+## Analysis
+...
+
+## Recommendation
+...
+
+## Sources
+...
+```
+
+**Checkable output:**
+```bash
+python -m pytest tests/test_entity_resolution.py
+python -m pytest tests/test_financial_snapshot.py
+python -m pytest tests/test_source_validation.py
+python -m app.main --live "LV,KFC,Google"
+```
+
+**Done when:**
+- Raw user input is preserved through the workflow.
+- Brand/subsidiary inputs are mapped to the correct investable entity or flagged for confirmation.
+- Public-company financial claims cite primary or high-quality sources.
+- Financial snapshot fields are populated from structured SEC data or typed extracted metric candidates, not from unverified raw snippets.
+- Annual-report/IR links are read before being used as evidence for specific financial fields.
+- Private/startup companies produce explicit data gaps instead of fake precision.
+- The memo explains cross-industry comparison limits when relevant.
+- Recommendation logic considers valuation and not only business quality.
+- Bad or ambiguous identity matches create warnings in `run_log.warnings`.
+
+**Connects from previous step:** Uses Stage 7 observability and saved artifacts to measure whether research quality improves without breaking the existing CLI and AgentOS demo flows.
+
+**Connects to next step:** Future stages can add deeper valuation models, richer non-US filings, industry-specific benchmarks, or user-interactive clarification in AgentOS.
+
+---
+
 ## MVP Boundary
 
 The MVP should include:
@@ -554,3 +747,5 @@ This MVP proves:
 - and the framework is ready for real research tools.
 
 Stages 4-7 improve citation quality, reliability, live execution, observability, and final presentation.
+
+Stage 8 is the next quality layer after the working demo: it makes the live system more trustworthy by improving entity resolution, financial grounding, source quality, and investment methodology.

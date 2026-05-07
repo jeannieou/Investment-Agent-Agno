@@ -8,6 +8,23 @@ from pydantic import BaseModel, Field, model_validator
 CompanyType = Literal["public", "private", "startup", "unknown"]
 Confidence = Literal["low", "medium", "high"]
 RiskLevel = Literal["low", "medium", "high"]
+FinancialMetricName = Literal[
+    "revenue",
+    "revenue_growth",
+    "operating_income",
+    "operating_margin",
+    "net_income",
+    "free_cash_flow",
+    "net_debt",
+    "debt_or_leverage",
+    "market_cap",
+    "pe_ratio",
+    "funding",
+    "valuation",
+    "employees",
+    "other",
+]
+SourceQuality = Literal["primary", "secondary", "mixed", "weak", "not_found"]
 
 
 class EvidenceSource(BaseModel):
@@ -26,14 +43,80 @@ class CompanyIdentity(BaseModel):
     name: str
     url: str
     description: str
+    raw_input: str = ""
+    legal_name: str | None = None
+    trade_name: str | None = None
+    aliases: list[str] = Field(default_factory=list)
+    parent_company: str | None = None
     ticker: str | None = None
+    exchange: str | None = None
+    country: str | None = None
+    currency: str | None = None
     company_type: CompanyType = "unknown"
+    is_investable_entity: bool = True
     confidence: Confidence = "medium"
+    resolution_note: str = ""
     sources: list[EvidenceSource] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def fill_identity_defaults(self) -> "CompanyIdentity":
+        if not self.raw_input:
+            self.raw_input = self.name
+        if not self.legal_name:
+            self.legal_name = self.name
+        if self.trade_name and self.trade_name not in self.aliases:
+            self.aliases.append(self.trade_name)
+        if self.name and self.name not in self.aliases:
+            self.aliases.append(self.name)
+        if self.company_type != "public" and not self.ticker:
+            self.exchange = self.exchange or None
+        if not self.resolution_note:
+            self.resolution_note = "Identity was resolved from the provided company name."
+        return self
 
 
 class ResearchRequest(BaseModel):
     company: CompanyIdentity
+
+
+class FinancialSnapshot(BaseModel):
+    name: str
+    ticker: str | None = None
+    period: str = "Not found"
+    currency: str = "Not found"
+    revenue: str = "Not found"
+    revenue_growth: str = "Not found"
+    operating_margin: str = "Not found"
+    net_income: str = "Not found"
+    free_cash_flow: str = "Not found"
+    debt_or_leverage: str = "Not found"
+    market_cap: str = "Not found"
+    pe_ratio: str = "Not found"
+    source_quality: SourceQuality = "not_found"
+    sources: list[EvidenceSource] = Field(default_factory=list)
+    metric_candidates: list["FinancialMetricCandidate"] = Field(default_factory=list)
+
+
+class FinancialMetricCandidate(BaseModel):
+    metric: FinancialMetricName
+    value: str
+    period: str = "Not found"
+    currency: str = "Not found"
+    source_url: str
+    source_quality: SourceQuality = "mixed"
+    confidence: Confidence = "medium"
+    caveat: str = ""
+
+
+class FinancialExtractionRequest(BaseModel):
+    company_name: str
+    source_url: str
+    source_quality: SourceQuality = "mixed"
+    source_text: str
+
+
+class FinancialExtractionResult(BaseModel):
+    metrics: list[FinancialMetricCandidate] = Field(default_factory=list)
 
 
 class CompanyResearch(BaseModel):
@@ -49,6 +132,7 @@ class CompanyResearch(BaseModel):
     market_size: str
     recent_news: list[str]
     competitors: list[str]
+    financial_snapshot: FinancialSnapshot | None = None
     sources: list[EvidenceSource] = Field(default_factory=list)
 
 
@@ -64,6 +148,9 @@ class CompanyAnalysis(BaseModel):
     competitive_position: DimensionScore
     growth_potential: DimensionScore
     business_model_strength: DimensionScore
+    valuation_reasonableness: DimensionScore | None = None
+    investment_profile: str = "Not classified"
+    methodology_note: str = ""
     overall_score: int = Field(default=1, ge=1, le=10)
     one_line_verdict: str
 
@@ -94,6 +181,7 @@ class CompanyRisk(BaseModel):
 
 
 class DecisionInput(BaseModel):
+    identities: list[CompanyIdentity] = Field(default_factory=list)
     research: list[CompanyResearch] = Field(default_factory=list)
     analysis: list[CompanyAnalysis] = Field(default_factory=list)
     risks: list[CompanyRisk] = Field(default_factory=list)

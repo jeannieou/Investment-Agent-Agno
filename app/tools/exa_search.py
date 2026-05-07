@@ -3,15 +3,19 @@
 from __future__ import annotations
 
 import os
+from pathlib import Path
 
 import requests
 from agno.tools import tool
+from dotenv import load_dotenv
 
 from app.schemas import EvidenceSource
 from app.tools._utils import clean_text, evidence_to_dicts, retry_call
 
 
 EXA_SEARCH_URL = "https://api.exa.ai/search"
+ENV_FILE = Path(__file__).resolve().parents[2] / ".env"
+load_dotenv(dotenv_path=ENV_FILE, override=False)
 
 
 def search_exa(

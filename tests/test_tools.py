@@ -1,6 +1,8 @@
 from app.agents import research_agent
+from app.schemas import EvidenceSource
 from app.tools._utils import clean_text
 from app.tools.exa_search import search_exa
+from app.tools.finance_search import search_public_finance_sources, search_startup_profile_sources
 from app.tools.sec_edgar import extract_financial_summary, fetch_sec_financial_data, resolve_cik
 from app.tools.web_search import search_company_web
 from app.tools.wikipedia import fetch_wikipedia_summary
@@ -220,12 +222,62 @@ def test_search_exa_returns_empty_without_api_key(monkeypatch) -> None:
     assert search_exa("Nvidia recent news") == []
 
 
+def test_search_public_finance_sources_targets_finance_and_ir_sources(monkeypatch) -> None:
+    captured = {}
+
+    def fake_search_exa(query, max_results=5, max_characters=1000, timeout=20.0, api_key=None):
+        captured["query"] = query
+        captured["max_results"] = max_results
+        return [
+            EvidenceSource(
+                title="Nvidia Yahoo Finance",
+                url="https://finance.yahoo.com/quote/NVDA",
+                publisher="finance.yahoo.com",
+                snippet="Market data and financial summary.",
+            )
+        ]
+
+    monkeypatch.setattr("app.tools.finance_search.search_exa", fake_search_exa)
+
+    sources = search_public_finance_sources("Nvidia", ticker="NVDA")
+
+    assert sources[0].publisher == "finance.yahoo.com"
+    assert "Yahoo Finance" in captured["query"]
+    assert "investor relations" in captured["query"]
+    assert "annual report" in captured["query"]
+
+
+def test_search_startup_profile_sources_targets_crunchbase(monkeypatch) -> None:
+    captured = {}
+
+    def fake_search_exa(query, max_results=5, max_characters=1000, timeout=20.0, api_key=None):
+        captured["query"] = query
+        return [
+            EvidenceSource(
+                title="Startup Crunchbase profile",
+                url="https://www.crunchbase.com/organization/example",
+                publisher="crunchbase.com",
+                snippet="Funding and founder profile.",
+            )
+        ]
+
+    monkeypatch.setattr("app.tools.finance_search.search_exa", fake_search_exa)
+
+    sources = search_startup_profile_sources("Example Startup")
+
+    assert sources[0].publisher == "crunchbase.com"
+    assert "Crunchbase" in captured["query"]
+    assert "funding" in captured["query"]
+
+
 def test_research_agent_has_stage4_tools() -> None:
     tool_names = {tool.name for tool in research_agent.tools}
 
     assert {
         "get_wiki_summary",
         "get_financial_data",
+        "search_public_finance_for_company",
+        "search_startup_profile_for_company",
         "search_exa_for_company",
         "search_web_for_company",
     } <= tool_names

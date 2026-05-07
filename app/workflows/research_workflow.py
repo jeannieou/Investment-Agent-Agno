@@ -19,6 +19,8 @@ from app.schemas import (
     EvidenceSource,
     WorkflowState,
 )
+from app.tools.entity_resolution import enrich_identity
+from app.tools.financial_snapshot import build_financial_snapshot, validate_research_sources
 
 
 class InvestmentResearchWorkflow:
@@ -34,6 +36,8 @@ class InvestmentResearchWorkflow:
                 company=raw_name,
                 call=lambda: self._mock_identity(raw_name),
             )
+            identity, warnings = enrich_identity(identity, raw_name)
+            state.run_log.warnings.extend(warnings)
             state.confirmed_companies.append(identity)
 
         pipeline_results = await asyncio.gather(
@@ -70,6 +74,8 @@ class InvestmentResearchWorkflow:
             call=lambda: self._mock_research(company),
             tool_calls=["mock_search", "mock_company_profile"],
         )
+        research.financial_snapshot = build_financial_snapshot(company, research)
+        self._current_state.run_log.warnings.extend(validate_research_sources(company, research))
         analysis = await self._run_logged(
             agent="Analyst Agent",
             company=company.name,
@@ -119,9 +125,18 @@ class InvestmentResearchWorkflow:
             name=clean_name,
             url=f"https://www.{slug}.com",
             description=f"Mock confirmed identity for {clean_name}",
+            raw_input=raw_name,
+            legal_name=f"{clean_name} Inc." if ticker else clean_name,
+            trade_name=clean_name,
+            aliases=[clean_name],
             ticker=ticker,
+            exchange="NASDAQ" if ticker else None,
+            country="United States" if ticker else None,
+            currency="USD" if ticker else None,
             company_type=company_type,
+            is_investable_entity=True,
             confidence="high",
+            resolution_note=f"Mock identity resolved from user input '{raw_name}'.",
             sources=[
                 EvidenceSource(
                     title=f"{clean_name} mock identity source",
@@ -134,7 +149,7 @@ class InvestmentResearchWorkflow:
 
     def _mock_research(self, company: CompanyIdentity) -> CompanyResearch:
         positioning = _mock_positioning(company.name)
-        return CompanyResearch(
+        research = CompanyResearch(
             name=company.name,
             url=company.url,
             company_type=company.company_type,
@@ -167,6 +182,8 @@ class InvestmentResearchWorkflow:
                 ),
             ],
         )
+        research.financial_snapshot = build_financial_snapshot(company, research)
+        return research
 
     def _mock_analysis(self, research: CompanyResearch) -> CompanyAnalysis:
         scores = _mock_dimension_scores(research.name, research.company_type)
@@ -229,11 +246,18 @@ class InvestmentResearchWorkflow:
         company_list = ", ".join(company.name for company in state.confirmed_companies)
         profile_sections = "\n\n".join(
             f"### {research.name}\n"
+            f"- Resolved from: {_identity_for(state, research.name).raw_input}\n"
             f"- Business: {research.business_model}\n"
             f"- Financials/Funding: {research.funding_or_financials}\n"
+            f"- Financial source quality: {research.financial_snapshot.source_quality if research.financial_snapshot else 'not_found'}\n"
             f"- Score: {_analysis_for(state, research.name).overall_score}/10\n"
             f"- Key risks: {'; '.join(_risk_for(state, research.name).key_risks[:2])}"
             for research in state.research
+        )
+        entity_rows = "\n".join(
+            f"| {company.raw_input} | {company.name} | {'Yes' if company.is_investable_entity else 'No'} | "
+            f"{company.confidence} | {company.resolution_note} |"
+            for company in state.confirmed_companies
         )
         comparison_rows = "\n".join(
             f"| {analysis.name} | {analysis.market_opportunity.score}/10 | "
@@ -254,6 +278,10 @@ class InvestmentResearchWorkflow:
             "based on deterministic Stage 1 scoring.\n\n"
             "## Company Profiles\n"
             f"{profile_sections}\n\n"
+            "## Entity Resolution\n"
+            "| User Input | Resolved Entity | Investable? | Confidence | Note |\n"
+            "|---|---|---:|---|---|\n"
+            f"{entity_rows}\n\n"
             "## Side-by-Side Comparison\n"
             "| Company | Market opportunity | Competitive position | Growth potential | Business model | Risk level | Overall |\n"
             "|---|---:|---:|---:|---:|---|---:|\n"
@@ -274,7 +302,7 @@ def run_mock_workflow(company_names: list[str]) -> WorkflowState:
 
 
 def make_fallback_research(company: CompanyIdentity, error: str) -> CompanyResearch:
-    return CompanyResearch(
+    research = CompanyResearch(
         name=company.name,
         url=company.url,
         company_type=company.company_type,
@@ -289,6 +317,8 @@ def make_fallback_research(company: CompanyIdentity, error: str) -> CompanyResea
         competitors=["Not found"],
         sources=[*company.sources],
     )
+    research.financial_snapshot = build_financial_snapshot(company, research)
+    return research
 
 
 def make_fallback_analysis(research: CompanyResearch, error: str) -> CompanyAnalysis:
@@ -406,6 +436,10 @@ def _analysis_for(state: WorkflowState, company_name: str) -> CompanyAnalysis:
 
 def _risk_for(state: WorkflowState, company_name: str) -> CompanyRisk:
     return next(item for item in state.risks if item.name == company_name)
+
+
+def _identity_for(state: WorkflowState, company_name: str) -> CompanyIdentity:
+    return next(item for item in state.confirmed_companies if item.name == company_name)
 
 
 def _dedupe_sources(sources) -> list[EvidenceSource]:

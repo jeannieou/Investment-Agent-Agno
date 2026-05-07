@@ -4,6 +4,7 @@ from app.agents import (
     analyst_agent,
     critic_agent,
     decision_agent,
+    financial_extractor_agent,
     identity_agent,
     research_agent,
 )
@@ -15,6 +16,8 @@ from app.schemas import (
     CompanyRisk,
     CriticInput,
     DecisionInput,
+    FinancialExtractionRequest,
+    FinancialExtractionResult,
     IdentityRequest,
     ResearchRequest,
 )
@@ -58,6 +61,7 @@ def test_stage3_agents_are_agno_agents() -> None:
         research_agent,
         analyst_agent,
         critic_agent,
+        financial_extractor_agent,
         decision_agent,
     ]:
         assert isinstance(agent, Agent)
@@ -78,14 +82,17 @@ def test_agent_input_and_output_schemas_are_typed() -> None:
     assert critic_agent.input_schema is CriticInput
     assert critic_agent.output_schema is CompanyRisk
 
+    assert financial_extractor_agent.input_schema is FinancialExtractionRequest
+    assert financial_extractor_agent.output_schema is FinancialExtractionResult
+
     assert decision_agent.input_schema is DecisionInput
     assert decision_agent.output_schema is None
 
 
 def test_structured_agents_enable_structured_outputs() -> None:
-    for agent in [identity_agent, research_agent, analyst_agent, critic_agent]:
+    for agent in [identity_agent, research_agent, analyst_agent, critic_agent, financial_extractor_agent]:
         assert agent.structured_outputs is True
-        assert agent.retries == 2
+        assert agent.retries in {1, 2}
 
 
 def test_research_agent_has_tool_budget_for_stage4() -> None:

@@ -19,8 +19,11 @@ analyst_agent = Agent(
         "You receive research for one company.",
         "Use only the provided research. Do not add outside facts.",
         "Score market opportunity, competitive position, growth potential, and business model strength from 1 to 10.",
+        "If financial_snapshot has enough data, also score valuation_reasonableness; otherwise leave it null and explain the data gap in methodology_note.",
+        "Set investment_profile, for example defensive, cyclical, growth, turnaround, luxury, platform, or startup.",
         "For each dimension, include score, narrative, and confidence.",
         "The schema computes overall_score from dimension scores, so focus on calibrated dimension scoring.",
+        "Do not treat a strong company as automatically a strong investment if valuation data is missing or unattractive.",
         "If data is missing, say so and reduce confidence.",
     ],
 )

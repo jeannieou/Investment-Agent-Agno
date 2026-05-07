@@ -63,12 +63,21 @@ def test_agent_os_mock_research_route_rejects_more_than_eight_companies() -> Non
 
 
 def test_agno_workflow_wrapper_runs_without_llm() -> None:
-    output = asyncio.run(mock_research_workflow.arun("Nvidia,AMD,Intel"))
+    async def collect_output() -> str:
+        chunks = []
+        async for event in mock_research_workflow.arun("Nvidia,AMD,Intel"):
+            content = getattr(event, "content", None)
+            if content:
+                chunks.append(content)
+        return "".join(chunks)
 
-    assert output.content.startswith("> Usage: enter up to 6 company names")
-    assert "# Investment Recommendation Memo" in output.content
-    assert "Invest in:" in output.content
-    assert "Nvidia" in output.content
+    output = asyncio.run(collect_output())
+
+    assert output.startswith("> Usage: enter up to 6 company names")
+    assert "# Investment Recommendation Memo" in output
+    assert "Invest in:" in output
+    assert "Nvidia" in output
+    assert "Progress:" in output
 
 
 def test_agno_workflow_endpoint_accepts_plain_company_names() -> None:
@@ -127,3 +136,38 @@ def test_agent_os_live_route_can_be_mocked(monkeypatch) -> None:
     body = response.json()
     assert body["state"]["raw_input"] == ["Nvidia"]
     assert "Invest in:" in body["memo"]
+
+
+def test_demo_live_stream_page_is_available() -> None:
+    client = TestClient(app)
+
+    response = client.get("/demo/live-stream")
+
+    assert response.status_code == 200
+    assert "Live Investment Research Stream" in response.text
+    assert "EventSource" in response.text
+
+
+def test_demo_live_stream_endpoint_streams_events(monkeypatch) -> None:
+    class FakeLiveWorkflow:
+        def __init__(self, progress_callback=None):
+            self.progress_callback = progress_callback
+
+        async def arun(self, state):
+            if self.progress_callback:
+                self.progress_callback("Resolving identity: Nvidia")
+            state.confirmed_companies = []
+            state.memo = "# Investment Recommendation Memo\n\n## Recommendation\n**Invest in: Nvidia**\n"
+            return state
+
+    monkeypatch.setattr("app.agent_os.LiveInvestmentResearchWorkflow", FakeLiveWorkflow)
+    client = TestClient(app)
+
+    with client.stream("GET", "/demo/live-research/stream?companies=Nvidia") as response:
+        body = "".join(response.iter_text())
+
+    assert response.status_code == 200
+    assert "event: progress" in body
+    assert "Resolving identity: Nvidia" in body
+    assert "event: memo" in body
+    assert "Invest in:" in body

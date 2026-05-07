@@ -9,6 +9,9 @@ from app.schemas import (
     CriticInput,
     DimensionScore,
     EvidenceSource,
+    FinancialExtractionRequest,
+    FinancialExtractionResult,
+    FinancialMetricCandidate,
     IdentityRequest,
     ResearchRequest,
     WorkflowState,
@@ -44,6 +47,22 @@ class FakeIdentityAgent:
         )
 
 
+class FakePublicIdentityAgent:
+    async def arun(self, request: IdentityRequest):
+        name = request.company_name
+        return FakeRunOutput(
+            CompanyIdentity(
+                name=name,
+                url=f"https://example.com/{name.lower()}",
+                description=f"{name} identity",
+                ticker=name.upper(),
+                company_type="public",
+                confidence="high",
+                sources=[],
+            )
+        )
+
+
 class FakeResearchAgent:
     async def arun(self, request: ResearchRequest):
         company = request.company
@@ -65,6 +84,60 @@ class FakeResearchAgent:
                 "competitors": ["Competitor"],
                 "sources": [source.model_dump() for source in company.sources],
             }
+        )
+
+
+class FakeStringResearchAgent:
+    async def arun(self, request: ResearchRequest):
+        return FakeRunOutput("I could not return structured research.")
+
+
+class FakeFinancialResearchAgent:
+    async def arun(self, request: ResearchRequest):
+        company = request.company
+        return FakeRunOutput(
+            {
+                "name": company.name,
+                "url": company.url,
+                "company_type": company.company_type,
+                "ticker": company.ticker,
+                "business_model": f"{company.name} business model",
+                "products": ["Product"],
+                "team_size": "Not found",
+                "key_people": ["Not found"],
+                "funding_or_financials": "Official financial source found.",
+                "market_size": "Market evidence",
+                "recent_news": ["Recent news"],
+                "competitors": ["Competitor"],
+                "sources": [
+                    {
+                        "title": f"{company.name} investor relations",
+                        "url": f"https://investor.example.com/{company.name.lower()}",
+                        "publisher": "investor.example.com",
+                        "snippet": "Revenue was 100 USD in FY2025.",
+                    }
+                ],
+            }
+        )
+
+
+class FakeFinancialExtractorAgent:
+    async def arun(self, request: FinancialExtractionRequest):
+        return FakeRunOutput(
+            FinancialExtractionResult(
+                metrics=[
+                    FinancialMetricCandidate(
+                        metric="revenue",
+                        value="100",
+                        period="FY2025",
+                        currency="USD",
+                        source_url=request.source_url,
+                        source_quality=request.source_quality,
+                        confidence="high",
+                        caveat="Extracted from fake IR source.",
+                    )
+                ]
+            )
         )
 
 
@@ -118,6 +191,7 @@ def make_fake_live_workflow(progress_callback=None) -> LiveInvestmentResearchWor
         analyst=FakeAnalystAgent(),
         critic=FakeCriticAgent(),
         decision=FakeDecisionAgent(),
+        financial_extractor=FakeFinancialExtractorAgent(),
         progress_callback=progress_callback,
     )
 
@@ -162,3 +236,76 @@ def test_coerce_agent_output_accepts_dict_and_model() -> None:
     assert _coerce_agent_output(FakeRunOutput(identity), CompanyIdentity) == identity
     assert _coerce_agent_output(FakeRunOutput(identity.model_dump()), CompanyIdentity) == identity
     assert _coerce_agent_output(FakeRunOutput("memo"), str) == "memo"
+
+
+def test_live_workflow_extracts_financial_metric_candidates(monkeypatch) -> None:
+    def fake_read_source_text(url, max_chars=16000):
+        class Result:
+            success = True
+            text = "Revenue was 100 USD in FY2025."
+            error = None
+
+        return Result()
+
+    monkeypatch.setattr("app.workflows.live_research_workflow.read_source_text", fake_read_source_text)
+    workflow = LiveInvestmentResearchWorkflow(
+        identity=FakePublicIdentityAgent(),
+        research=FakeFinancialResearchAgent(),
+        analyst=FakeAnalystAgent(),
+        critic=FakeCriticAgent(),
+        decision=FakeDecisionAgent(),
+        financial_extractor=FakeFinancialExtractorAgent(),
+    )
+
+    result = asyncio.run(workflow.arun(WorkflowState(raw_input=["Nvidia"])))
+
+    snapshot = result.research[0].financial_snapshot
+    assert snapshot is not None
+    assert snapshot.period == "FY2025"
+    assert snapshot.revenue.startswith("100")
+    assert snapshot.metric_candidates
+    assert any(run.agent == "Financial Extractor Agent" for run in result.run_log.agent_runs)
+
+
+def test_live_workflow_uses_direct_tool_research_fallback(monkeypatch) -> None:
+    monkeypatch.setattr(
+        "app.workflows.live_research_workflow.fetch_wikipedia_summary",
+        lambda company_name: [
+            EvidenceSource(
+                title="AMC Entertainment Holdings",
+                url="https://en.wikipedia.org/wiki/AMC_Entertainment",
+                publisher="Wikipedia",
+                snippet="AMC Entertainment operates movie theaters.",
+            )
+        ],
+    )
+    monkeypatch.setattr(
+        "app.workflows.live_research_workflow.fetch_sec_financial_data",
+        lambda company_name, ticker=None: [
+            EvidenceSource(
+                title="SEC companyfacts for AMC Entertainment",
+                url="https://data.sec.gov/api/xbrl/companyfacts/CIK0001411579.json",
+                publisher="SEC EDGAR",
+                snippet="Latest reported revenue: 123 USD.",
+            )
+        ],
+    )
+    monkeypatch.setattr("app.workflows.live_research_workflow.search_public_finance_sources", lambda *args, **kwargs: [])
+    monkeypatch.setattr("app.workflows.live_research_workflow.read_source_text", lambda *args, **kwargs: type("R", (), {"success": False, "text": "", "error": "skip"})())
+
+    workflow = LiveInvestmentResearchWorkflow(
+        identity=FakePublicIdentityAgent(),
+        research=FakeStringResearchAgent(),
+        analyst=FakeAnalystAgent(),
+        critic=FakeCriticAgent(),
+        decision=FakeDecisionAgent(),
+        financial_extractor=FakeFinancialExtractorAgent(),
+    )
+
+    result = asyncio.run(workflow.arun(WorkflowState(raw_input=["AMC"])))
+
+    research = result.research[0]
+    assert research.business_model == "AMC Entertainment operates movie theaters."
+    assert research.funding_or_financials == "Latest reported revenue: 123 USD."
+    assert research.sources
+    assert any("direct-tool fallback" in warning for warning in result.run_log.warnings)
